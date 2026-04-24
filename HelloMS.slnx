@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CommonLib/CommonLib.csproj" Id="6a2dd6a4-455d-4d7a-96b0-362ae6698329" />
+  <Project Path="Gateway/Gateway.csproj" />
+  <Project Path="HelloCaller/HelloCaller.csproj" />
+  <Project Path="HelloService/HelloService.csproj" />
+</Solution>

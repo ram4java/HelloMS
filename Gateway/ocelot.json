@@ -1,0 +1,68 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Hello/SayHello",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7250
+        },
+        {
+          "Host": "localhost",
+          "Port": 7260
+        },
+        {
+          "Host": "localhost",
+          "Port": 7270
+        }
+
+      ],
+      "UpstreamPathTemplate": "/Hello/SayHello",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Key": "Hello",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Hello/CourseList",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7250
+        }
+      ],
+      "UpstreamPathTemplate": "/Hello/CourseList",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Key": "courseList"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Greetings/GreetMe",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7251
+        }
+      ],
+      "UpstreamPathTemplate": "/Greetings/GreetMe ",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Key": "Greetings"
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "Hello",
+        "Greetings"
+      ],
+      "UpstreamPathTemplate": "/api/aggregate"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7200"
+  }
+
+}
