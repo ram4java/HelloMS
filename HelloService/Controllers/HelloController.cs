@@ -56,6 +56,13 @@ namespace HelloService.Controllers
             return Ok("Hi All!! This is Hello Service");
         }
 
+        [HttpGet]
+        [Route("SayHello2")]
+        public async Task<ActionResult> SayHello2()
+        {
+            return Ok("Hi All!! This is for GitTEST");
+        }
+
 
     }
     internal class Course
